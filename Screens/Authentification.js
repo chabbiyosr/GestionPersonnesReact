@@ -123,7 +123,7 @@ export default function Authentification(props) {
 
         style={{ fontWeight: "bold", color:"white"}}
         >
-          Create user
+          Create new user
           </Text>
 
         </TouchableOpacity>
