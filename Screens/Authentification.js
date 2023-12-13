@@ -42,7 +42,7 @@ export default function Authentification(props) {
         }}
       >
         <Text style={{marginTop:15, fontSize:32,fontWeight: "bold", color:"white"}}>
-          Authentification
+          **Authentification**
         </Text>
         <TextInput
           onChangeText={(text) => {
@@ -123,7 +123,7 @@ export default function Authentification(props) {
 
         style={{ fontWeight: "bold", color:"white"}}
         >
-          Create new user
+          Create user
           </Text>
 
         </TouchableOpacity>
