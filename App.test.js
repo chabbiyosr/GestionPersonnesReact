@@ -1,7 +1,13 @@
-import { fireEvent, render } from '@testing-library/react-native';
 import Authentification from '../path/to/Authentification';
+import { fireEvent, render } from '@testing-library/react-native';
 
-test('Login with valid credentials', () => {
+jest.mock('firebase', () => ({
+  auth: jest.fn(() => ({
+    signInWithEmailAndPassword: jest.fn().mockResolvedValue({ user: { uid: '123' } }),
+  })),
+}));
+
+test('Login with valid credentials', async () => {
   const { getByPlaceholderText, getByText } = render(<Authentification />);
 
   const emailInput = getByPlaceholderText('email');
