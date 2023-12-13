@@ -1,4 +1,4 @@
-name: "Continuous integration"
+name: Continuous integration
 
 on:
   pull_request:
@@ -12,6 +12,18 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '18'
-      - run: npm ci
-      # - run: npm test
-      - run: npm run build
+
+      # Install Firebase CLI
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      # Run tests
+      - name: Run tests
+        run: |
+          npm ci
+      #npm test
+
+      # Firebase deploy
+      - name: Firebase Deploy
+        run: |
+          firebase deploy --token $FIREBASE_TOKEN 
