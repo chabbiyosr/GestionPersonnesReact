@@ -20,7 +20,7 @@ export default function App() {
     ></Stack.Screen>
     <Stack.Screen name="acceuil" component={Acceuil}></Stack.Screen>
     <Stack.Screen name="signup" component={SignUp}></Stack.Screen>
-    <Stack.Screen name="chat" component={Chat}></Stack.Screen>
+    /* <Stack.Screen name="chat" component={Chat}></Stack.Screen> */
 
     
     </Stack.Navigator>

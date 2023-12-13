@@ -42,7 +42,7 @@ export default function Authentification(props) {
         }}
       >
         <Text style={{marginTop:15, fontSize:32,fontWeight: "bold", color:"white"}}>
-          Authentification
+          --Authentification--
         </Text>
         <TextInput
           onChangeText={(text) => {
@@ -96,12 +96,12 @@ export default function Authentification(props) {
           .catch((ex)=>{alert(ex)});
         }}
         style={styles.touchable}>
-          <Text style={styles.text}>Submit</Text>
+          <Text style={styles.text}>Submit </Text>
 
         </TouchableOpacity>
         <TouchableOpacity onPress={v=>{BackHandler.exitApp()}}
         style={styles.touchable}>
-          <Text style={styles.text}>Dismiss</Text>
+          <Text style={styles.text}>Dismiss </Text>
 
         </TouchableOpacity>
 
@@ -123,7 +123,7 @@ export default function Authentification(props) {
 
         style={{ fontWeight: "bold", color:"white"}}
         >
-          Create new user
+          Create new user !
           </Text>
 
         </TouchableOpacity>
