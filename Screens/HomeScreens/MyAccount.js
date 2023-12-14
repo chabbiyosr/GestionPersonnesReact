@@ -165,7 +165,7 @@ export default function MyAccount(props) {
            //   alert(nom+" " + prenom + " " + pseudo)
             }}
           >
-            <Text style={styles.text} >Save</Text>
+            <Text style={styles.text} >Save & exit </Text>
           </TouchableOpacity>
         </View>
 

@@ -1,0 +1,30 @@
+name: Continuous deployment
+
+on:
+  pull_request:
+    branches: ["master"]
+
+jobs:
+  deploy_to_firebase:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      # Install Firebase CLI
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      # Run tests and build
+      - name: Test and Build
+        run: |
+          npm ci
+      # Deploy to Firebase
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

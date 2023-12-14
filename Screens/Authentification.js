@@ -42,7 +42,7 @@ export default function Authentification(props) {
         }}
       >
         <Text style={{marginTop:15, fontSize:32,fontWeight: "bold", color:"white"}}>
-          Authentification
+          **Authentification**
         </Text>
         <TextInput
           onChangeText={(text) => {

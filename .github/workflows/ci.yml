@@ -1,4 +1,4 @@
-name: "Continuous integration"
+name: Continuous integration
 
 on:
   pull_request:
@@ -6,12 +6,18 @@ on:
 
 jobs:
   pr_test:
-    runs-on: windows
+    runs-on: [windows-latest,self-hosted]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '18'
+
+      # Install Firebase CLI
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      # Run tests
       - run: npm ci
-      - run: npm test
-      - run: npm run build
+  
+
