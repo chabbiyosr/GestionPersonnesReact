@@ -1,11 +1,11 @@
-name: Continuous integration
+name: Continuous deployement
 
 on:
   pull_request:
     branches: ["master"]
 
 jobs:
-  pr_test:
+  deploy_to_firebase:
     runs-on: [windows-latest,self-hosted]
     steps:
       - uses: actions/checkout@v2
@@ -18,8 +18,15 @@ jobs:
         run: npm install -g firebase-tools
 
       # Run tests
-      - run: npm ci
-      - run: npm test
+      - name: Run tests
+        run: npm ci
+        run: npm test
       - run: npm run build
-  
 
+      - uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only hosting
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+    
